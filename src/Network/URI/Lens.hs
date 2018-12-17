@@ -1,5 +1,5 @@
 -- | Network uri lenses
-module Network.Uri.Lens
+module Network.URI.Lens
   ( regNameLens
   , userInfoLens
   , portLens
