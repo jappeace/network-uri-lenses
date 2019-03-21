@@ -1,3 +1,4 @@
+{-# LANGUAGE Rank2Types #-}
 -- | Network uri lenses
 module Network.URI.Lens
   ( regNameLens
@@ -10,8 +11,13 @@ module Network.URI.Lens
   , uriFragmentLens
   ) where
 
-import           Control.Lens
 import           Network.URI
+
+type Lens' s a = Lens s s a a
+type Lens s t a b = forall f. Functor f => (a -> f b) -> s -> f t
+
+lens :: (s -> a) -> (s -> b -> t) -> Lens s t a b
+lens sa sbt afb s = sbt s <$> afb (sa s)
 
 regNameLens :: Lens' URIAuth String
 regNameLens = lens uriRegName (\parent newVal -> parent {uriRegName = newVal})

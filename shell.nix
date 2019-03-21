@@ -15,12 +15,4 @@
 let 
     build = pkgs.haskellPackages.callPackage ./default.nix { };
 in 
-pkgs.stdenv.mkDerivation {
-  name = "network-uri-lenses";
-  buildInputs = [
-    pkgs.haskellPackages.hpack
-    pkgs.cabal-install
-    pkgs.ghc
-  ] ++ build.buildInputs;
-    
-}
+build.env
