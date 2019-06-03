@@ -1,5 +1,5 @@
 name:                network-uri-lenses
-version:             0.2.0.0
+version:             0.2.1.0
 github:              "jappeace/network-uri-lenses"
 license:             BSD3
 author:              "Jappie Klooster"
@@ -27,5 +27,4 @@ dependencies:
 library:
   source-dirs: src
   dependencies:
-    - network-uri
-    - lens
+    - network-uri >= 2.6 && < 2.7
